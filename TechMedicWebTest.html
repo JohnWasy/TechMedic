@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMedic</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #5a5a5a; /* Larger change in background color */
+        }
+        section {
+            padding: 20px;
+            display: none; /* Initially hide all sections */
+		}
+        footer {
+            margin-top: auto;
+            background-color: #f1f1f1; /* Optional: background color */
+            text-align: center; /* Center the text */
+            padding: 10px; /* Add some padding */
+            border-top: 1px solid #ccc; /* Optional: border for visual separation */
+        }
+    </style>
+    <script>
+        // JavaScript to handle navigation within the single-page application
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll("nav a");
+
+            // Function to show the selected section and hide others
+            function showSection(sectionId) {
+                sections.forEach(function(section) {
+                    if (section.id === sectionId) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            }
+
+            // Show the Home section by default
+            showSection("home");
+
+            // Event listener for each navigation link
+            navLinks.forEach(function(navLink) {
+                navLink.addEventListener("click", function() {
+                    const sectionId = this.getAttribute("data-section-id");
+                    showSection(sectionId);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1 style="margin-bottom: -10px;">TechMedic</h1>
+		<p style="margin-top: -10px;">prodotype</p>
+        <p>Your go-to destination for all things tech</p>
+		<p><b>WeFixtech</b></p>
+    </header>
+    <nav>
+        <a href="#" data-section-id="home">Home</a>
+        <a href="#" data-section-id="about">About</a>
+        <a href="#" data-section-id="services">Services</a>
+        <a href="#" data-section-id="contact">Contact</a>
+        <a href="#" data-section-id="costs">Costs</a>
+        <a href="#" data-section-id="opened">Opened</a>
+        <a href="#" data-section-id="donate">Donate Now</a>
+        <a href="#" data-section-id="members">Our Members</a>
+        <a href="#" data-section-id="rate">Rate Us</a>
+        <a href="#" data-section-id="survey">Client Survey</a>
+        <a href="#" data-section-id="agreement">Computer Service Agreement</a>
+		<a href="#" data-section-id="merch">Merchandise</a>
+		<a href="#" data-section-id="appointment">Make Appointment</a>
+    </nav>
+    <section id="home">
+        <h2>Welcome to TechMedic</h2>
+        <p>TechMedic is dedicated to providing you with the latest news, advancements, and resources in the intersection of technology.</p>
+        <p>This is a work in progress, private website. Will be public on github soon.</p>
+		<h3>Announcments🔔</h3>
+		<h4>Website Prodotype</h4>
+		<p>This website is a prodotype, which in our context means it is not done, thus not published. Will be launching soon!</p>
+		
+	</section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are a sole proprietorship IT business owned by John Wasylyshen and Mike Wasylyshen. Our mission is to help you with you tech needs, and get feedback to better suit you. Stay tuned for launch.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>Discover the range of services we offer to help you stay at the forefront of healthcare technology.</p>
+		<h4>-Diagnostics for all</h4>
+		<h4>-Repair Laptops and PC's of all problems</h4>
+		<h4>-Rapair Laptop and PC Softwares</h4>
+		<h4>-Repair Laptop Battery</h4>
+		<h4>-Clean Laptops and PCs</h4>
+		<h4>-Program Apps and Build Websites</h4>
+		<h4>-Sell Laptops and PC Components-coming</h4>
+		<h4>-Virus Detection and Wipe-coming</h4>
+		<h4>-Phone Repair-coming</h4>
+		<h4>-Install New Phone Battery-coming</h4>
+		<h4>-Physical-Digital Photo</h4>
+		<h4>-Build PC</h4>
+		<h4>-Drop Off</h4>
+		<h4>-Shipping</h4>
+	</section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us to learn more about our offerings or to collaborate on projects or if you got any questions, we will answer em'. Off and On work hours.</p>
+		
+		<h3>Emails</h3>
+		<h5><a href="mailto:johnwasy251@gmail.com" style="color: black; font-weight: bold; text-decoration: none;">John Wasy</a>'s Email</h5>
+		
+		<h3>Phone Numbers (Text or Call)</h3>
+		<h5><a href="tel:+15879903313" style="color: black; font-weight; bold; text-decoration: none;">John Wasy</a>'s Phone Number (Text or Call, dont call at night)</h5>
+    </section>
+    <section id="costs">
+        <h2>Costs (Make Drop Down Boxes For All*)</h2>
+        <p>Explore our pricing options for various services and solutions. *Prices can vary on the difficulty of the work*, and your invoice will be sent to you. We dont give free estimates.</p>
+		<h4>-Diagnostics for all</h4>
+		<p>A diagnostic is a test to see what is wrong with what ever you need repaired, and we tell you the diagnostic information, then see if you still want to start the project on repairing the item, or building, etc.</p>
+		<p>Cost: Between $30 and $70 fixed cost + Any of the below</p>
+		
+		<h4>-Repair Laptops and PC's of all problems</h4>
+		<p>We can repair you laptop and PC of any kind of problem.</p>
+		<p>Cost: Between $30/h and $50/h or $70/h and $100/h</p>
+		
+		<h4>-Rapair Laptop and PC Softwares</h4>
+		<h4>-Repair Laptop Battery</h4>
+		<h4>-Clean Laptops and PCs</h4>
+		<h4>-Program Apps and Build Websites</h4>
+		<h4>-Sell Laptops and PC Components-coming</h4>
+		<h4>-Virus Detection and Wipe-coming</h4>
+		<h4>-Phone Repair-coming</h4>
+		<h4>-Install New Phone Battery-coming</h4>
+		<h4>-Physical-Digital Photo</h4>
+		<h4>-Build PC</h4>
+		<h4>-Drop Off</h4>
+		<p>When the project is done, we will drop it off to your desired location, of course after you pay the invoice (Go to Computer Service Agreement for more info).</p>
+		<p>Cost: An Extra $10</p>
+		
+		<h4>-Shipping</h4>
+		<p>You can ship us your item, and we will ship it back.</p>
+		<p>Cost: An Extra $150</p>
+	</section>
+    <section id="opened">
+        <h2>Opened</h2>
+        <p>Learn about our operating hours and when we're available to assist you.</p>
+    </section>
+    <section id="donate">
+        <h2>Donate Now</h2>
+        <p>Support our cause by making a donation to help us continue our work.</p>
+    </section>
+    <section id="members">
+        <h2>Our Members</h2>
+        <p>Meet the team and individuals behind TechMedic.</p>
+		
+		<h3 style="margin-bottom; -12px;">John Wasylyshen</h3>
+		<h5 style="margin-top: -12px;">Founder/Accountant/Manager/IT Specialist/Designer (Draft)</h5>
+		<p>The founder and IT Specialist, Designer, designer of the Website, and lots more. (Draft)</p>
+		
+		<h3 style="margin-bottom; -12px;">Mike Wasylyshen</h3>
+		<h5 style="margin-top: -12px;">Co-Founder/Manager/Deliverer (Draft)</h5>
+		<p>The guy that gave JW the idea of a Tech Service Business. And (Draft)</p>
+		
+		<h3>
+    </section>
+    <section id="rate">
+        <h2>Rate Us</h2>
+        <p>Share your feedback and rate our services.</p>
+    </section>
+    <section id="survey">
+        <h2>Client Survey</h2>
+        <p>Take our survey to help us improve our services.</p>
+    </section>
+    <section id="agreement">
+        <h2>Computer Service Agreement<h2>
+		<h4>This Computer Service Agreement is entered into by and between TechMedic™️, and [Client's Name].</p>
+
+		<h3>1. SERVICES</h3>
+		<p>Service Provider agrees to provide computer services to the Client as described below.</p>
+		<p>Customer’s service need:</p>
+		<p>Cumputer No: </p>
+
+		<h3>2. PAYMENT</h3>
+		<p>In consideration of the services provided, Client agrees to pay Service Provider the fees specified below.
+		Look at Costs section for all info</p>
+
+		<h3>3. TERM</h3>
+		<p>This Agreement shall commence on the Effective Date and continue until terminated by either party as provided in Section 4 of this Agreement. Bills must be payed in full before equipment is returned.</p>
+
+		<h3>4. TERMINATION</h3>
+		<p>Either party may terminate this Agreement by providing written notice to the other party prior to commencement of work.</p>
+
+		<h3>5. WARRANTIES<h3>
+		<p>Service Provider warrants that the services provided under this Agreement will be performed in a workmanlike manner and in accordance with industry standards.</p>
+
+		<h3>6. LIMITATION OF LIABILITY</h3>
+		<p>Service Provider shall not be liable for any indirect, incidental, or consequential damages in connection with or arising out of the services provided under this Agreement.</p>
+
+		<h3>7. CONFIDENTIALITY</h3>
+		<p>Both parties agree to maintain the confidentiality of all information and data provided to each other during the term of this Agreement.</p>
+
+		<h3>8. AGREEMENT</h3>
+		<p>This Agreement contains the entire agreement of the parties with respect to the subject matter hereof and supersedes all prior or contemporaneous agreements or understandings, whether oral or written.</p>
+
+		<h3>Signature</h3>
+		<h4>TechMedic™️</h4>
+		<p>By: __________________________</p>
+		<p>Name: [fixer]</p>
+		<p>Date: [Date]</p>
+
+		<h4>[Client's Name]</h4>
+		<p>By: __________________________</p>
+		<p>Name: [Client's Name]</p>
+		<p>Date: [Date]</p>
+	</section>
+	<section id="merch">
+		<h2>Merchandise</h2>
+		<p>Coming soon</p>
+	</section>
+	<section id="appointment">
+		<h2>Make Your Appointment</h2>
+		<p>Web/Online Appointment making is coming soon</p>
+		
+		<h3>Types Of Appointment Drops Offs:</h3>
+		<h4>Shipping - Too us and Back too you</h4>
+		<p>Go to costs for more info.</p>
+		
+		<h4>Drop Off - For when completed need</h4>
+		<p>Go to costs for more info</p>
+		
+		<h4>Walk In - To us</h4>
+		<p>Directly drive to our address and do every thing there.</p>
+		</section>
+		<footer>
+		Copyright © 2023 TechMedic
+		</footer>
+</body>
