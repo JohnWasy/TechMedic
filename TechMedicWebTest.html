@@ -6,6 +6,24 @@
     <title>TechMedic</title>
     <style>
         /* Basic Styles */
+		a[data-section-id="appointment"] {
+            cursor: not-allowed; /* Changes cursor to hourglass */
+        }
+		a[data-section-id="donate"] {
+			cursor: not-allowed; /* Changes cursor to hourglass */
+		}
+		a[data-section-id="merch"] {
+			cursor: not-allowed; /* Changes cursor to hourglass */
+		}
+		a[data-section-id="costs"] {
+			cursor: wait; /* Changes cursor to busy (progress) */
+		}
+		a[data-section-id="rate"] {
+			cursor: wait;
+		}
+		a[data-section-id="survey"] {
+			cursor: wait;
+		}
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -32,7 +50,7 @@
         }
         nav a:hover {
             background-color: #5a5a5a; /* Larger change in background color */
-        }
+		}
         section {
             padding: 20px;
             display: none; /* Initially hide all sections */
@@ -44,6 +62,98 @@
             padding: 10px; /* Add some padding */
             border-top: 1px solid #ccc; /* Optional: border for visual separation */
         }
+		.custom-button {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* Remove border */
+            width: 100px; /* Width */
+            height: 100px; /* Height */
+            border-radius: 50%; /* Round shape */
+            display: flex; /* Flexbox for centering text */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor */
+            text-align: center; /* Center text alignment */
+			text-decoration: none; /* Remove underline */
+			transition: background-color 0.3s ease;
+        }
+		.custom-button:hover {
+            background-color: #66bb6a; /* Light green background on hover */
+        }
+		.rating {
+            display: flex;
+            direction: row;
+        }
+
+        .star {
+            width: 30px;
+            height: 30px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Empty_Star.svg/1024px-Empty_Star.svg.png') no-repeat center;
+            background-size: contain;
+            margin: 0 2px;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+        }
+
+        .star.full {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .star.half {
+            background: linear-gradient(to right, 
+                        url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png') 50%, 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Empty_Star.svg/1024px-Empty_Star.svg.png') 50%) no-repeat center;
+            background-size: contain;
+        }
+
+        .rating .star:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .rating:hover .star {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .rating:hover .star:hover ~ .star,
+        .rating:hover .star:hover ~ .star {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Empty_Star.svg/1024px-Empty_Star.svg.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .rating:hover .star:hover {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png') no-repeat center;
+            background-size: contain;
+        }
+		.button-container {
+            position: relative; /* Establishes a relative positioning context for the button */
+        }
+        .button-container button {
+            position: absolute; /* Position the button relative to the container */
+            top: -58px; /* Move up by 40px */
+            left: 105px; /* Move right by 40px */
+			border-radius: 5px;
+			border: 0px solid #ccc;
+			background-color: #4caf50;
+			color: white;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+        }
+		.button-container button:hover {
+			background-color: #66bb6a;
+		}
+		/* Optional: Style for dropdown */
+		select {
+			width: 200px; /* Set the width of the dropdown */
+			padding: 10px; /* Add padding inside the dropdown */
+			border-radius: 5px; /* Rounded corners */
+			border: 1px solid #ccc; /* Border color */
+			font-size: 16px; /* Font size */
+		}
     </style>
     <script>
         // JavaScript to handle navigation within the single-page application
@@ -96,15 +206,107 @@
         <a href="#" data-section-id="agreement">Computer Service Agreement</a>
 		<a href="#" data-section-id="merch">Merchandise</a>
 		<a href="#" data-section-id="appointment">Make Appointment</a>
+		<a href="#" data-section-id="credits">Credits</a>
     </nav>
     <section id="home">
         <h2>Welcome to TechMedic</h2>
         <p>TechMedic is dedicated to providing you with the latest news, advancements, and resources in the intersection of technology.</p>
         <p>This is a work in progress, private website. Will be public on github soon.</p>
-		<h3>Announcments🔔</h3>
+		<h3 style="margin-bottom: -5px;">Announcments🔔</h3>
+		<h5 style="margin-top: -5px;">----------------------------------------------------</h5>
 		<h4>Website Prodotype</h4>
 		<p>This website is a prodotype, which in our context means it is not done, thus not published. Will be launching soon!</p>
 		
+		<h3 style="margin-bottom: -5px;">Updates</h3>
+		<h5 style="margin-top: -5px;">----------------------------------------------------</h5>
+		<h4>For Updates</h4>
+		<p>Make sure you refresh your page, and check out Website Updates or what ever update category you want!</p>
+		<div class="button-container">
+			<button onclick="refreshPage()">Refresh</button>
+	<script>
+        function refreshPage() {
+            window.location.reload(); // Refreshes the current page
+        }
+    </script>
+		<h4>Website Updates💻</h4>
+		<h5>Updates - Home Page</h5>
+		<p>The Home Page got a new sub-category, Updates. For seeing Website Updates and just TechMedic General Updates! The update sub-category was just added, so it will only have latest updates and not past updates.</p>
+		<h5>Donate Now - Cool Donation button</h5>
+		<p>A cool ease unlicked gatway donation button was added.</p>
+		<h5>Nav Cursors🖱️</h5>
+		<p>You might notice on the Nav, some Nav's have differect cursors.</p>
+		<p>The "hourglass" cursor means it is being worked on. The "not-allowed" cursor means that it is coming soon or unfunctional.</p>
+		<h4>TechMedic Updates<h4>
+		
+		<h4>Coming Soon - Website</h4>
+		<h5>Drop Boxes</h5>
+		<p>For things like in Costs for the Services that need it and Appointment Making. Thus it would look cool! Example:</p>
+			<label for="myDropdown">Choose an option:</label>
+			<select id="myDropdown" name="options">
+				<option value="option1">option1</option>
+				<option value="option2">Option 2</option>
+				<option value="option3">Option 3</option>
+				<option value="option4">Option 4</option>
+			</select>
+		<p>and</p>
+			 <style>
+				.dropdown {
+					position: relative; /* Position relative to contain the absolute positioning of the dropdown content */
+					display: inline-block; /* Allows it to be inline with other content */
+				}
+
+				.dropdown-content {
+					display: none; /* Hide the dropdown content by default */
+					background-color: #f9f9f9; /* Background color */
+					padding: 10px; /* Padding inside the dropdown content */
+					border: 1px solid #ddd; /* Border around the dropdown content */
+					box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow for dropdown */
+					z-index: 1; /* Ensure it appears above other elements */
+					position: absolute; /* Position it relative to the dropdown container */
+					top: 100%; /* Position below the trigger button */
+					left: 0; /* Align to the left of the trigger button */
+					width: max-content; /* Adjust width based on content */
+				}
+
+				.dropdown-content.show {
+					display: block; /* Show the dropdown content when toggled */
+				}
+
+				.dropdown .dropbtn {
+					cursor: pointer; /* Show pointer cursor on hover */
+				}
+
+				.dropdown .dropbtn::after {
+					content: ' ▼'; /* Arrow character */
+				}
+			</style>
+
+			<div class="dropdown">
+				<span class="dropbtn" onclick="toggleDropdown()">Click to Toggle</span>
+				<div class="dropdown-content" id="dropdownContent">
+					<p>This is the dropdown content.</p>
+					<p>More text can be added here.</p>
+				</div>
+			</div>
+			<script>
+				function toggleDropdown() {
+					var dropdownContent = document.getElementById('dropdownContent');
+					dropdownContent.classList.toggle('show');
+				}
+
+				// Close the dropdown if the user clicks outside of it
+				window.onclick = function(event) {
+					if (!event.target.matches('.dropbtn')) {
+						var dropdowns = document.querySelectorAll('.dropdown-content');
+						dropdowns.forEach(function(dropdown) {
+							if (dropdown.classList.contains('show')) {
+								dropdown.classList.remove('show');
+							}
+						});
+					}
+				}
+			</script>
+		<h5></h5>
 	</section>
     <section id="about">
         <h2>About Us</h2>
@@ -150,7 +352,6 @@
 		<p>Cost: Between $30/h and $50/h or $70/h and $100/h</p>
 		
 		<h4>-Rapair Laptop and PC Softwares</h4>
-		<h4>-Repair Laptop Battery</h4>
 		<h4>-Clean Laptops and PCs</h4>
 		<h4>-Program Apps and Build Websites</h4>
 		<h4>-Sell Laptops and PC Components-coming</h4>
@@ -168,13 +369,24 @@
 		<p>Cost: An Extra $150</p>
 	</section>
     <section id="opened">
-        <h2>Opened</h2>
+        <h2>Hours Of Work</h2>
         <p>Learn about our operating hours and when we're available to assist you.</p>
-    </section>
+		<h3>Open</h3>
+		<h3>Closed</h3>
+		<h4>Closed - Soltera Holidays</h4>
+		<h5>-7 Days before and after Christmas</h5>
+		<h5>-Halloween</h5>
+		<h5>-Mothers Day</h5>
+		<h5>-Fathers Day</h5>
+		<h5>-Valentines Day</h5>
+		<h5>-Remembrance Day</h5>
+		<h5>-Labor Day</h5>
+	</section>
     <section id="donate">
         <h2>Donate Now</h2>
-        <p>Support our cause by making a donation to help us continue our work.</p>
-    </section>
+        <p>Support our cause by making a donation to help us continue our work. Gateway Coming Soon.</p>
+		<center><a href="" style="underline: false" class="custom-button">Donate</a></center>
+	</section>
     <section id="members">
         <h2>Our Members</h2>
         <p>Meet the team and individuals behind TechMedic.</p>
@@ -190,6 +402,14 @@
 		<h3>
     </section>
     <section id="rate">
+		<!-- Rating System -->
+        <div class="rating">
+            <span data-value="1" class="star"></span>
+            <span data-value="2" class="star"></span>
+            <span data-value="3" class="star"></span>
+            <span data-value="4" class="star"></span>
+            <span data-value="5" class="star"></span>
+        </div>
         <h2>Rate Us</h2>
         <p>Share your feedback and rate our services.</p>
     </section>
@@ -241,7 +461,7 @@
 	</section>
 	<section id="merch">
 		<h2>Merchandise</h2>
-		<p>Coming soon</p>
+		<p>Coming soon.</p>
 	</section>
 	<section id="appointment">
 		<h2>Make Your Appointment</h2>
@@ -256,8 +476,53 @@
 		
 		<h4>Walk In - To us</h4>
 		<p>Directly drive to our address and do every thing there.</p>
-		</section>
+	</section>
+	<section id="credits">
+		<h2>Website Creation Credits</h2>
+		<h3>Builder</h3>
+		<h4>-John Wasylyshen - Entire Website Creator</h4>
+		
+		<h3>Sorce Of Knowledge</h3>
+		<h4>-ChatGPT</h4>
+		<h4>-Google</h4>
+		<h4>-Mimo HTML and Website Creation Cartificate (Learn more credentials on Our Members)</h4>
+		<h4>-Other HTML and Website Creation Stuff</h4>
+	</section>
 		<footer>
-		Copyright © 2023 TechMedic
+		Copyright © 2023 TechMedic All Rights Received.
 		</footer>
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('.star');
+            let selectedRating = 0;
+
+            stars.forEach(star => {
+                star.addEventListener('mouseover', () => {
+                    const value = parseInt(star.dataset.value);
+                    updateStars(value, 'half');
+                });
+
+                star.addEventListener('mouseleave', () => {
+                    updateStars(selectedRating, 'full');
+                });
+
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.dataset.value);
+                    updateStars(selectedRating, 'full');
+                });
+            });
+
+            function updateStars(rating, type) {
+                stars.forEach(star => {
+                    const value = parseInt(star.dataset.value);
+                    if (value <= rating) {
+                        star.classList.add(type);
+                        star.classList.remove(type === 'full' ? 'half' : 'full');
+                    } else {
+                        star.classList.remove('full', 'half');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
